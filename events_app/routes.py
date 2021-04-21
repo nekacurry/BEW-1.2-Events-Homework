@@ -78,7 +78,7 @@ def create():
           description = new_event_description,
           date_and_time = date_and_time,
         )
-        db.session.add(event)
+        db.session.add(new_event)
         db.session.commit()
 
         flash('Event created.')
