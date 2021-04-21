@@ -73,8 +73,13 @@ def create():
         except ValueError:
             print('there was an error: incorrect datetime format')
 
-        # TODO: Create a new event with the given title, description, & 
-        # datetime, then add and commit to the database
+        new_event = Event(
+          title = new_event_title,
+          description = new_event_description,
+          date_and_time = date_and_time,
+        )
+        db.session.add(event)
+        db.session.commit()
 
         flash('Event created.')
         return redirect(url_for('main.index'))
@@ -84,5 +89,5 @@ def create():
 
 @main.route('/guest/<guest_id>')
 def guest_detail(guest_id):
-    # TODO: Get the guest with the given id and send to the template
+    quest = Guest.query.get(guest_id)
     return render_template('guest_detail.html')
