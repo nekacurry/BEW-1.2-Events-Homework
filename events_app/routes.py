@@ -89,5 +89,5 @@ def create():
 
 @main.route('/guest/<guest_id>')
 def guest_detail(guest_id):
-    quest = Guest.query.get(guest_id)
+    guest = Guest.query.get(guest_id)
     return render_template('guest_detail.html')
